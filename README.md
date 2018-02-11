@@ -1,15 +1,25 @@
-# AirBnB_clone
-This project is a collaborative project that tests our skills in developing an app from start to finish using best practices, working in a team, and learning new languages and frameworks. Over a 4 month period the authors will be making a simple clone of AirBnB from front-end to back-end using languages like HTML, CSS, JavaScript, Python, and MySQL and using frameworks such as Flask.
+# Holberton School - AirBNB Clone
+## Python (The Console)
 
-The first task of the project is create a basic command interpreter using Python.
+### Purpose
+Part One of the AirBNB Clone covers the creation of a command interpreter
+* parent class `BaseModel` initalizes, serializes, and deserializes future instances
+* serialization/deserialization flow: Instance <-> Dictionary <-> JSON string <-> file
+* `User` `State` `City` Place` classes inherit from `BaseModel`
+* abstracted storage engine (File Storage)
+* unittests validate all classes and storage engine
+### The Console
+The console is a data model where objects can be created, updated, destroyed via a command
+interpreter, and also stored and persisted to files using JSON. First, a storage engine is
+created, which gives us an abstraction between "my object" and how they are "stored and persisted."
+This eliminates the need to regulate how objects are later stored, and allows updated the type of
+storage without needing to update the entire codecase. The console validates this storage engine.
 
-# Command Interpreter
-## How to start it
-To start the command interpreter use the following command:
-`./command.py`
+### Requirements
+* Ubunto 14.04 LTS
+* python 3.4
+* pep8 1.7
 
-## How to use it
-The command interpreter is used to take in commands and allow changes to be made to certain parts of the project without having to change the entire code base.
-
-## Examples
-`Insert Examples here later`
+### File Stucture
+| Program	  | Description						     |
+| --------------- |:--------------------------------------------------------:|
