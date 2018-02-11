@@ -1,19 +1,20 @@
 #!/usr/bin/python3
-'''
-File for class BaseModel and all its methods and data
-'''
+"""
+Module: Base
+base_models.py - other classes may inherit from this Base Model class
+"""
+import json
 
 
-import uuid
-import datetime
-import cmd
-
-
-class BaseModel(self):
-    '''
-    Defining all common attributes/methods for other classes
-    '''
-    def __init__(self):
-        '''
-        Initialization for an instance of BaseModel
-        '''
+class BaseModel:
+    """ Class: Blase """
+    def __init__(self, id=uuid):
+        """ Initialization method """
+        if hasattr(self, "created_at") and type(self.created_at) is str:
+            self.created_at = datetime
+        if hassattr(self, "updated_at") and type(self.updated_at) is str:
+            self.updated_at = datetime
+        else:
+            self.id = str(uuid.uud4())
+            self.created_at = datetime
+            self.updated_at = datetime
