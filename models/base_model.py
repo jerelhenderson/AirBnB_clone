@@ -4,17 +4,39 @@ Module: Base
 base_models.py - other classes may inherit from this Base Model class
 """
 import json
+from datetime import datetime
+import uuid
 
 
 class BaseModel:
-    """ Class: Blase """
-    def __init__(self, id=uuid):
-        """ Initialization method """
-        if hasattr(self, "created_at") and type(self.created_at) is str:
-            self.created_at = datetime
-        if hassattr(self, "updated_at") and type(self.updated_at) is str:
-            self.updated_at = datetime
-        else:
-            self.id = str(uuid.uud4())
-            self.created_at = datetime
-            self.updated_at = datetime
+    """ Class: Base """
+    def __init__(self):
+        '''
+        Initializes an instance
+        '''
+        id = str(uuid.uud4())
+        created_at = datetime.now()
+        updated_at = datetime.now()
+
+    def save(self):
+        '''
+        Updates the updated_at attribute
+        '''
+        self.updated_at = datetime.now()
+
+    def __str__(self):
+        '''
+        Prints a string
+        '''
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
+                                     self.__dict__)
+
+    def to_dict(self):
+        '''
+        Returns a dictionary containing all keys/values of __dict__
+        '''
+        class_dict = self.__dict__
+        class_dict['__class__'] = self.__class__
+        class_dict[created_at] = isoformat(created_at)
+        class_dict[updated_at] = isoformat(updated_at)
+        return class_dict
