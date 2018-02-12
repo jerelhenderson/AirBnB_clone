@@ -4,6 +4,7 @@ Module: Base
 base_models.py - other classes may inherit from this Base Model class
 """
 import json
+from datetime import date
 from datetime import datetime
 import uuid
 
@@ -14,9 +15,9 @@ class BaseModel:
         '''
         Initializes an instance
         '''
-        id = str(uuid.uuid4())
-        created_at = datetime.now()
-        updated_at = datetime.now()
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
     def save(self):
         '''
@@ -35,8 +36,8 @@ class BaseModel:
         '''
         Returns a dictionary containing all keys/values of __dict__
         '''
-        class_dict = self.__dict__
-        class_dict['__class__'] = self.__class__
-        class_dict[created_at] = isoformat(created_at)
-        class_dict[updated_at] = isoformat(updated_at)
-        return class_dict
+        c_d = self.__dict__
+        c_d['__class__'] = self.__class__.__name__
+        c_d['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        c_d['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        return c_d
