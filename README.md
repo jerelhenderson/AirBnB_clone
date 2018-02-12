@@ -5,7 +5,7 @@
 Part One of the AirBNB Clone covers the creation of a command interpreter
 * parent class `BaseModel` initalizes, serializes, and deserializes future instances
 * serialization/deserialization flow: Instance <-> Dictionary <-> JSON string <-> file
-* `User` `State` `City` Place` classes inherit from `BaseModel`
+* `User` `State` `City` `Place` classes inherit from `BaseModel`
 * abstracted storage engine (File Storage)
 * unittests validate all classes and storage engine
 ### The Console
@@ -16,9 +16,9 @@ This eliminates the need to regulate how objects are later stored, and allows up
 storage without needing to update the entire codecase. The console validates this storage engine.
 
 ### Requirements
-* Ubunto 14.04 LTS
-* python 3.4
-* pep8 1.7
+* All files are compiled and run on Ubuntu 14.04 LTS
+* All files are written using python 3.4
+* All python files must comply with pep8 1.7
 
 ### File Stucture
 | Program	  | Description						     |
