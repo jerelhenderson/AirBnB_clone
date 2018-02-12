@@ -18,9 +18,9 @@ class BaseModel:
         Initializes an instance
         '''
         if kwargs is not None:
-            kwargs['created_at'] = datetime.strftime(kwargs["created_at"],
+            kwargs['created_at'] = datetime.strptime(kwargs["created_at"],
                                                      "%Y-%m-%dT%H:%M:%S.%f")
-            kwargs['updated_at'] = datetime.strftime(kwargs["updated_at"],
+            kwargs['updated_at'] = datetime.strptime(kwargs["updated_at"],
                                                      "%Y-%m-%dT%H:%M:%S.%f")
             for key, value in kwargs.items():
                 setattr(self, key, value)
@@ -48,6 +48,6 @@ class BaseModel:
         '''
         c_d = self.__dict__
         c_d['__class__'] = self.__class__.__name__
-        c_d['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
-        c_d['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        c_d['created_at'] = self.created_at.strptime("%Y-%m-%dT%H:%M:%S.%f")
+        c_d['updated_at'] = self.updated_at.strptime("%Y-%m-%dT%H:%M:%S.%f")
         return c_d
