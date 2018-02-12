@@ -18,6 +18,8 @@ class BaseModel:
         Initializes an instance
         '''
         if kwargs is not None:
+            kwargs['created_at'] = datetime.strftime(kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
+            kwargs['updated_at'] = datetime.strftime(kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
             for key, value in kwargs.items():
                 setattr(self, key, value)		
         else:
