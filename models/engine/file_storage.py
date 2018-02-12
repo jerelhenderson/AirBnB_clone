@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+ #!/usr/bin/python3
 '''
 Module: File Storage
 file_storage.py - serialize instance to JSON file and deserialize JSON files to instance
@@ -20,13 +20,11 @@ class FileStorage:
 
     def save(self):
         """ writes JSON string repr. of object """
-        new_list = {}
+        new_objs = {}
         filename = "{}.json".format(self.__file_path)
 
-        if __objects is None:
-            return my_json.write(cls.to_json_string(new_list))
-        else:
-            with open(filename, "w", encoding="UTF8") as my_json:
-                for key in self.__objects
-                    new_list.append(self.__objects[key].to_dictionary(objects))
-                my_json.write(self.objects[key].to_json_string(new_list))
+        with open(filename, "w", encoding="UTF8") as json_objs:
+            for key in self.__objects:
+                new_list.append(self.__objects[key].to_dict())
+            # json_objs.write(self.objects[key].to_json_string(new_objs))
+            return json.dumps(new_objs, filename)
