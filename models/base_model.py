@@ -13,7 +13,7 @@ from datetime import datetime
 class BaseModel:
     """ Class: Base """
     def __init__(self, *args, **kwargs):
-        ''' Initializes an instance '''
+        ''' initialize instance '''
         if kwargs:
             for key, value in kwargs.items():
                 if "__class__" not in key:
@@ -31,17 +31,17 @@ class BaseModel:
             models.storage.save()
 
     def save(self):
-        ''' Updates the updated_at attribute '''
+        ''' updates updated_at attribute '''
         self.updated_at = datetime.now()
         models.storage.save()
 
     def __str__(self):
-        ''' Prints a string '''
+        ''' print string '''
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
                                      self.__dict__)
 
     def to_dict(self):
-        ''' Returns a dictionary containing all keys/values of __dict__ '''
+        ''' returns dictionary containing all keys/values of __dict__ '''
         c_d = self.__dict__.copy()
         c_d['__class__'] = self.__class__.__name__
         c_d['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")

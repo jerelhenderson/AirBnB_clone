@@ -20,6 +20,19 @@ storage without needing to update the entire codecase. The console validates thi
 * python 3.4
 * pep8 1.7
 
+### Installation
+
+
 ### File Stucture
 | Program	  | Description						     |
 | --------------- |:--------------------------------------------------------:|
+
+### Usage
+
+
+### Bugs
+
+
+### Authors
+Jacob Biehler
+Jerel Henderson
