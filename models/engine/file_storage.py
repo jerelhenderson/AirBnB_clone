@@ -16,29 +16,31 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        key = "{}.{}".format(obj.__class__.__name__.id)
-        self.__objects = self._objects + obj
+        key = "{}.{}".format(obj.__class__.__name__,id)
+        self.__objects[key] = obj
 
     def save(self):
         """ writes JSON string repr. of object """
         new_objs = {}
-        filename = "{}.json".format(self.__file_path)
+        filename = "{}".format(self.__file_path)
 
-        with open(filename, "w", encoding="UTF8") as json_objs:
-            for key in self.__objects:
-                new_list.append(self.__objects[key].to_dict())
+        with open(filename, "w", encoding="UTF8") as f:
+            for key, value in self.__objects.items():
+                new_objs[key] = value.to_dict()
+            #    new_objs.append(self.__objects[key].to_dict())
             # json_objs.write(self.objects[key].to_json_string(new_objs))
-            return json.dumps(new_objs, filename)
+            json.dump(new_objs, f)
 
     def reload(self):
         """ returns list of instances """
-        new_list = {}
-        filename = "{}.json".format(self.__file_path)
+        new_objs = {}
+        filename = "{}".format(self.__file_path)
 
         try:
-            with open(filename, "r", encoding="UTF8") as json_objs:
-                for key in json.load(filename):
-                    new_list.append(self.__objects(**key))
-                return new_list
+            with open(filename, "r", encoding="UTF8") as f:
+                for key, value in json.load(f).items():
+                    self.__objects[key] = eval(value["__class__"](**key))
+                    # new_list.append(self.__objects(**key))
+                return new_objs
         except:
             return {}
