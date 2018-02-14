@@ -1,10 +1,10 @@
- #!/usr/bin/python3
+#!/usr/bin/python3
 '''
 Module: File Storage
-file_storage.py - serialize instance to JSON file, deserialize JSON files to instance
+Serialize instance to JSON file, deserialize JSON files to instance
 '''
 import json
-from models.base_model import BaseModel
+import models
 
 
 class FileStorage:
@@ -16,7 +16,7 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        key = "{}.{}".format(obj.__class__.__name__,id)
+        key = "{}.{}".format(obj.__class__.__name__, id)
         self.__objects[key] = obj
 
     def save(self):
@@ -24,11 +24,9 @@ class FileStorage:
         new_objs = {}
         filename = "{}".format(self.__file_path)
 
-        with open(filename, "w", encoding="UTF8") as f:
-            for key, value in self.__objects.items():
-                new_objs[key] = value.to_dict()
-            #    new_objs.append(self.__objects[key].to_dict())
-            # json_objs.write(self.objects[key].to_json_string(new_objs))
+        for key, value in FileStorage.__objects.items():
+            new_objs[key] = value.to_dict()
+        with open(FileStorage.__file_path, "w", encoding="utf-8") as f:
             json.dump(new_objs, f)
 
     def reload(self):
