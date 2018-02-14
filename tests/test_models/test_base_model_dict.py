@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 from models.base_model import BaseModel
 
-
+'''
+Output information from Guillaume
+---------------------------------------------------------------
 my_model = BaseModel()
 my_model.name = "Holberton"
 my_model.my_number = 89
@@ -23,3 +25,5 @@ print(type(my_new_model.created_at))
 
 print("--")
 print(my_model is my_new_model)
+---------------------------------------------------------------
+'''

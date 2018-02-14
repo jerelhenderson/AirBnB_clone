@@ -2,6 +2,9 @@
 from models import storage
 from models.base_model import BaseModel
 
+'''
+Output information from Guillaume
+---------------------------------------------
 all_objs = storage.all()
 print("-- Reloaded objects --")
 for obj_id in all_objs.keys():
@@ -14,3 +17,5 @@ my_model.name = "Holberton"
 my_model.my_number = 89
 my_model.save()
 print(my_model)
+---------------------------------------------
+'''
