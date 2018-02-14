@@ -1,7 +1,8 @@
  #!/usr/bin/python3
 '''
 Module: File Storage
-file_storage.py - serialize instance to JSON file, deserialize JSON files to instance
+file_storage.py - serialize instance to JSON file
+deserialize JSON files to instance
 '''
 import json
 from models.base_model import BaseModel
@@ -22,7 +23,7 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        key = "{}.{}".format(obj.__class__.__name__,id)
+        key = "{}.{}".format(obj.__class__.__name__, id)
         self.__objects[key] = obj
 
     def save(self):
