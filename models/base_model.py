@@ -28,8 +28,8 @@ class BaseModel:
                                                 "%Y-%m-%dT%H:%M:%S.%f")
         else:
             self.id = str(uuid.uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
+            self.created_at = datetime.utcnow()
+            self.updated_at = datetime.utcnow()
             models.storage.new(self)
             models.storage.save()
 
@@ -37,7 +37,7 @@ class BaseModel:
         '''
         Updates the updated_at attribute
         '''
-        self.updated_at = datetime.now()
+        self.updated_at = datetime.utcnow()
         models.storage.save()
 
     def __str__(self):
