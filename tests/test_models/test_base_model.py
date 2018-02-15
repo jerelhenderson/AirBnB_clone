@@ -36,6 +36,7 @@ for key in my_model_json.keys():
 #        self.assertEqual(result.total_errors, 0, "Found style errors.")
 
 class test_base_model(unittest.TestCase):
+    ''' 'BaseModel' Tests '''
     """ Class 'BaseModel' tests """
     def test_model_instance(self):
         ''' test instance exists '''
