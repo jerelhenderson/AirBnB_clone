@@ -8,7 +8,7 @@ Part One of the AirBNB Clone covers the creation of a command interpreter
 * `User` `State` `City` `Place` classes inherit from `BaseModel`
 * abstracted storage engine (File Storage)
 * unittests validate all classes and storage engine
-### The Console
+
 ## How to start it
 To start the command interpreter use the following command:
 `./command.py`
@@ -28,3 +28,11 @@ storage without needing to update the entire codebase. The console validates thi
 ### File Stucture
 | Program	  | Description						     |
 | --------------- |:--------------------------------------------------------:|
+
+
+### Bugs
+No known issues
+
+### Authors
+Jacob Biehler
+Jerel Henderson
