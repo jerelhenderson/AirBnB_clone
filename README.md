@@ -11,7 +11,7 @@ Part One of the AirBNB Clone covers the creation of a command interpreter
 
 ## How to start it
 To start the command interpreter use the following command:
-`./command.py`
+`./console.py`
 
 ## About the Console
 The console is a data model where objects can be created, updated, destroyed via a command
@@ -28,7 +28,7 @@ storage without needing to update the entire codebase. The console validates thi
 ### File Stucture
 | Program	  | Description						     |
 | --------------- |:--------------------------------------------------------:|
-
+ 
 
 ### Bugs
 No known issues
