@@ -6,6 +6,7 @@ import cmd
 import models
 import shlex
 
+
 class HBNBCommand(cmd.Cmd):
     '''
     The class methods to setup the console
@@ -100,7 +101,7 @@ class HBNBCommand(cmd.Cmd):
         instance_dictionary = models.storage.all()
         if len(arguments) == 0:
             for key, value in instance_dictionary.items():
-               instance_list.append(value)
+                instance_list.append(value)
             print(instance_list)
         elif arguments[0] not in models.available_models:
             print("** class doesn't exist **")

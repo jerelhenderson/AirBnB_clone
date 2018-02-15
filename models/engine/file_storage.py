@@ -4,7 +4,8 @@ Module: File Storage
 Serialize instance to JSON file, deserialize JSON files to instance
 '''
 import json
-import models   
+import models
+
 
 class FileStorage:
     """ serialize instance to JSON file, deserialize JSON file to instance """
