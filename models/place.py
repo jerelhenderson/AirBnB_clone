@@ -4,6 +4,7 @@ Module: Place
 user.py - user-specific that inherits from BaseClass
 """
 from models.base_model import BaseModel
+import models
 
 
 class Place(BaseModel):
@@ -19,7 +20,3 @@ class Place(BaseModel):
     latitude = 0.0
     longitude = 0.0
     amenity_ids = []
-
-    def __init__(self, *args, **kwargs):
-        """ Initialization method """
-        super().__init__(*args, **kwargs)
