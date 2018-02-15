@@ -3,12 +3,8 @@
 The file that sets up the console class to be used to access data for HBnB
 '''
 import cmd
-import json
 import models
 import shlex
-from models.engine.file_storage import FileStorage
-from models.base_model import BaseModel
-
 
 class HBNBCommand(cmd.Cmd):
     '''
@@ -99,27 +95,20 @@ class HBNBCommand(cmd.Cmd):
         Prints all the instances based on class.
         If no class specified all instances print.
         '''
-        instance_list = []
-        file_stored = models.storage.all()
         arguments = shlex.split(argument)
-        try:
-            if len(arguments) != 0:
-                instance_name = arguments[0]
-                instance_id = arguments[1]
-                eval(instance_name)
-        except NameError:
-            print("** class doesn't exit **")
-            return
-        if len(arguments) != 0:
-            for key, value in file_stored.items():
-                if instance_name in key:
+        instance_list = []
+        instance_dictionary = models.storage.all()
+        if len(arguments) == 0:
+            for key, value in instance_dictionary.items():
+               instance_list.append(value)
+            print(instance_list)
+        elif arguments[0] not in models.available_models:
+            print("** class doesn't exist **")
+        else:
+            for key, value in instance_dictionary.items():
+                if arguments[0] in key:
                     instance_list.append(value)
             print(instance_list)
-        else:
-            for key, value in file_stored.items():
-                instance_list.append(value)
-            print(instance_list)
-        models.storage.save()
 
     def do_update(self, argument):
         '''
