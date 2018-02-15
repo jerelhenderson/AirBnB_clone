@@ -31,7 +31,7 @@ class BaseModel:
             self.created_at = datetime.utcnow()
             self.updated_at = datetime.utcnow()
             models.storage.new(self)
-            models.storage.save()
+        models.storage.save()
 
     def save(self):
         '''
@@ -56,3 +56,10 @@ class BaseModel:
         c_d['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         c_d['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         return c_d
+
+    def __repr__(self):
+        '''
+        Sets the repr
+        '''
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
+                                     self.__dict__)

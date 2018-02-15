@@ -16,29 +16,27 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        key = "{}.{}".format(obj.__class__.__name__, id)
+        key = "{}.{}".format(obj.__class__.__name__, obj.id)
         self.__objects[key] = obj
 
     def save(self):
         """ writes JSON string repr. of object """
         new_objs = {}
-        filename = "{}".format(self.__file_path)
 
-        for key, value in FileStorage.__objects.items():
+        for key, value in self.__objects.items():
             new_objs[key] = value.to_dict()
-        with open(FileStorage.__file_path, "w", encoding="utf-8") as f:
+        with open(self.__file_path, "w") as f:
             json.dump(new_objs, f)
 
     def reload(self):
         """ returns list of instances """
-        new_objs = {}
-        filename = "{}".format(self.__file_path)
-
+        loaded_dictionary = {}
         try:
-            with open(filename, "r", encoding="UTF8") as f:
-                for key, value in json.load(f).items():
-                    self.__objects[key] = eval(value["__class__"](**key))
-                    # new_list.append(self.__objects(**key))
-                return new_objs
-        except:
-            return {}
+            with open(self.__file_path, "r", encoding="UTF8") as f:
+                loaded_dictionary = json.load(f)
+            for key, value in loaded_dictionary.items():
+                class_name = value.get("__class__")
+                if class_name in models.available_models:
+                    self.__objects[key] = models.available_models[class_name](**value)
+        except FileNotFoundError:
+            pass
