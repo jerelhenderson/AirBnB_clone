@@ -10,7 +10,8 @@ from models.review import Review
 from models.user import User
 
 
-available_models = {'BaseModel': BaseModel, 'User': User, 'State': State, 'City': City, 'Amenity': Amenity, 'Place': Place,
-                    'Review':   Review}
+available_models = {'BaseModel': BaseModel, 'User': User, 'State': State,
+                    'City': City, 'Amenity': Amenity, 'Place': Place,
+                    'Review': Review}
 storage = FileStorage()
 storage.reload()
