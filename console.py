@@ -54,7 +54,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif len(arguments) == 1:
             print("** instance id missing **")
-        elif arguments[0] not in models.available_models:
+        elif arguments[0] not in  models.available_models:
             print("** class doesn't exist **")
         else:
             stored_key = "{}.{}".format(arguments[0], arguments[1])

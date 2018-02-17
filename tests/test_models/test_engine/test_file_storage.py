@@ -17,28 +17,22 @@ from models.user import User
 
 class test_file_storage(unittest.TestCase):
     ''' FileStorage Tests '''
-    def set_up_base_model(self):
-        ''' assign BaseModel '''
-        self.basemodel = BaseModel()
-
-    def set_up_file_storage(self):
-        ''' assign FileStorage '''
-        self.filestorage = FileStorage()
-
     def test_file_storage_instance(self):
         ''' test instance exists '''
         inst_1 = FileStorage()
         self.assertTrue(inst_1)
 
-#    def test_all(self):
-#        ''' test console method 'all' '''
-#        inst_2 = self.filestorage.all()
-#        self.assertIsInstance(type(inst_2), dict)
-
-#    def test_new(self):
-#        ''' test console method 'new' '''
-#        inst_3 = BaseModel()
-#        self.filestorage.new(inst_3)
-#        inst_3_str = "{}.{}".format(inst_3.__class__.__name__, inst_3.id)
-#        inst_3_dict = self.filestorage.all()
-#        self.assertIn(inst_3_str, inst_3_dict)
+    def test_all(self):
+        ''' test console method 'all' '''
+        inst_2 = FileStorage()
+        all_inst_2 = inst_2.all()
+        self.assertTrue(type(all_inst_2) is dict)
+ 
+    def test_new(self):
+        ''' test console method 'new' '''
+        inst_3 = BaseModel()
+        inst_3_1 = FileStorage()
+        inst_3_1.new(inst_3)
+        inst_3_str = "{}.{}".format(inst_3.__class__.__name__, inst_3.id)
+        inst_3_dict = inst_3_1.all()
+        self.assertIn(inst_3_str, inst_3_dict)

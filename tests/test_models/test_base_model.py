@@ -83,15 +83,25 @@ class test_base_model(unittest.TestCase):
 
     def test_to_dict_dict(self):
         ''' test to_dict converts to dict '''
-        inst_8_1 = BaseModel()
-        inst_8_1_dict = inst_8_1.to_dict()
-        self.assertEqual(dict, type(inst_8_1_dict))
+        inst_9 = BaseModel()
+        inst_9_dict = inst_9.to_dict()
+        self.assertEqual(dict, type(inst_9_dict))
 
     def test_to_dict_id(self):
         ''' test if 'id' is dict '''
-        inst_8_2 = BaseModel()
-        inst_8_2_dict = inst_8_2.to_dict()
-        self.assertIn('id', inst_8_2_dict)
+        inst_10 = BaseModel()
+        inst_10_dict = inst_10.to_dict()
+        self.assertIn('id', inst_10_dict)
+
+    def test_--str--_id(self):
+        ''' test magic method '''
+        inst_11 = BaseModel()
+        inst_11_name = inst_11.__class__.__name__
+        inst_11_id = inst_11.id
+        inst_11_dict = inst_11.__dict__
+        self.assertTrue(inst_11.name, str)
+        self.assertTrue(inst_11.id, str)
+        self.assertTrue(inst_11.__dict__, dict)
 
 if __name__ == '__main__':
     unittest.main()
