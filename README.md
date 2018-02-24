@@ -20,6 +20,10 @@ created, which gives us an abstraction between "my object" and how they are "sto
 This eliminates the need to regulate how objects are later stored, and allows updated the type of
 storage without needing to update the entire codebase. The console validates this storage engine.
 
+## HTML/CSS (Web Static)
+### Purpose
+Part two of the HBnB (AirBnB clone) which covers the web static portion of the website.
+
 ### Requirements
 * All files are compiled and run on Ubuntu 14.04 LTS
 * All files are written using python 3.4
