@@ -47,17 +47,17 @@
 	text-align: center;
 }
 .max_guest {
-	margin-left: auto
-	margin-right: auto
+	margin-left: auto;
+	margin-right: auto;
 	background: url('../images/icon_group.png') no-repeat;
 }
 .number_rooms{
-	margin-left: auto
-	margin-right: auto
+	margin-left: auto;
+	margin-right: auto;
 	background: url('../images/icon_bed.png') no-repeat;
 }
 .number_bathrooms{
-	margin-left: auto
-	margin-right: auto
+	margin-left: auto;
+	margin-right: auto;
 	background: url('../images/icon_bath.png') no-repeat;
 }
