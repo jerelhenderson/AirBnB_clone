@@ -1,9 +1,15 @@
-footer{
+footer {
 	background-color: #00FF00;
 	height: 60px;
 	width: 100%;
-	position:absolute;
+	position: fixed;
 	bottom: 0;
+	}
+	
+footer p {
 	text-align: center;
-	line-height: 60px;
-}
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	}
