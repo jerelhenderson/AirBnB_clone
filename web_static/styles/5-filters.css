@@ -27,26 +27,25 @@ section.filters button:hover {
 }
 
 .locations, .amenities {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	height: 100%;
 	width: 25%;
 }
 
 .locations h3, .amenities h3 {
 	font-weight: 600;
-	margin-left: 45px;
-	text-align: left;
+	margin: 0px;
+	margin-left: -200px;
+	margin-top: 15px;
 }
 
 .locations h4, .amenities h4 {
 	font-weight: 400;
 	font-size: 14px;
-	margin-left: 130px;
+	margin: 0px;
+	margin-left: -200px;
 	
 }
 
 .locations {
-	border-right: solid #DDDDDD 1px;
+	border-left: solid #DDDDDD 1px;
 }
